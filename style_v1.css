@@ -1,0 +1,82 @@
+ @font-face {
+    font-family: "Avara-Bold";
+    src: url("fonts/Avara-Bold.woff2") format("woff2");
+ }
+
+ body {
+    font-family: "Avara-Bold" , serif ;
+  }
+
+ img {
+    max-width: 100%;
+    height: auto; 
+ }
+
+ p {
+    margin: 0;
+ }
+
+
+ 
+ 
+ .grid-container {
+    display: grid;
+    padding: 15px;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "name name name name "
+    "bio bio bio bio  "
+    "image-1 image-1 image-2 image-2 "
+    "text-1 . text-2 . "
+    "image-3 image-3 . . "
+    "text-3 . . . ";
+ }
+
+.name {
+    grid-area: name; 
+}
+
+.name h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+}
+
+.bio {
+    grid-area: bio; 
+    
+}
+
+.bio p {
+    text-align: center;
+    font-size: 24px;
+    color: deeppink;
+    margin: 0;
+}
+
+.image-1 {
+    grid-area: image-1;
+}
+
+
+.image-2 {
+    grid-area: image-2;
+}
+
+.image-3 {
+    grid-area: image-3;
+}
+
+.text-1 { 
+    grid-area: text-1;
+}
+
+.text-2 { 
+    grid-area: text-2;
+}
+
+.text-3 { 
+    grid-area: text-3;
+}
+
