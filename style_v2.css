@@ -1,0 +1,120 @@
+ @font-face {
+    font-family: "Movement-DirectThin";
+    src: ("Movement-DirectThin.woff2") format("woff2");
+ }
+
+ body {
+    background-color: deeppink;
+    font-family: "Movement-DircetThin" , sans-serif ;
+  }
+
+ img {
+    max-width: 100%;
+    height: auto; 
+ }
+
+ p {
+    margin: 0;
+   color: rgb(255, 255, 255);
+ }
+
+
+ 
+ 
+ .grid-container {
+    display: grid;
+    padding: 15px;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "name name name name "
+    "bio bio bio bio  "
+    ". image-1 image-1 . "
+      ". image-1 image-1 text-1 "
+    ". image-2 image-2 . "
+     ". image-2 image-2 text-2 "
+    ". image-3 image-3 . "
+     ". image-3 image-3 text-3 ";
+ }
+
+.name {
+    grid-area: name; 
+    position: sticky;
+    top: 0;
+}
+
+.name h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+    color: rgb(255, 255, 255)
+}
+
+.bio {
+    grid-area: bio; 
+    
+}
+
+.bio p {
+    text-align: center;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;;
+}
+
+.bio p:hover {
+    opacity: 1;
+}
+
+.image-1 {
+    grid-area: image-1;
+}
+
+.image-1 img {
+    transition: transform 0.5s ease;
+}
+
+.image-1 img:hover {
+   transform: scale(0.5)
+}
+
+
+.image-2 {
+    grid-area: image-2;
+}
+
+.image-2 img {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.3s ease;
+}
+
+.image-2 img:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+}
+
+.image-3 {
+    grid-area: image-3;
+}
+
+.image-3 img {
+    transition: transform 0.5s ease;
+}
+
+.image-3 img:hover {
+    transform: rotate(5deg) scale(1.5);
+}
+
+.text-1 { 
+    grid-area: text-1;
+}
+
+.text-2 { 
+    grid-area: text-2;
+}
+
+.text-3 { 
+    grid-area: text-3;
+}
+
