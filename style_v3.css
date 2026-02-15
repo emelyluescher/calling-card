@@ -4,7 +4,7 @@
  }
 
  body {
-    background-color: deeppink;
+    background-color: rgb(177, 255, 20);
     font-family: "Movement-DircetThin" , sans-serif ;
   }
 
@@ -17,10 +17,14 @@
     margin: 0;
    color: rgb(255, 255, 255);
  }
+ a { 
+    color: inherit;
+    text-decoration: none;
+ }
 
-
- 
- 
+ a:hover {
+    color: black;
+ }
  .grid-container {
     display: grid;
     padding: 15px;
