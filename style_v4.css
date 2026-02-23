@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 5px;
+    background-color: rgb(255, 52, 150);
+    color: white;
+}
+
+
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: laufen 20s linear infinite;
+    font-size: 240px;
+    font-weight: 900;
+}
+
+@keyframes laufen {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+    height: calc(100vh - 260px);
+    grid-template-areas:
+        ". . bio bio . ."
+        "p1-hero p1-hero p2-text p2-text p3-bild1 p3-bild2"
+        "p1-hero p1-hero p2-bild1 p2-bild2 p3-hero p3-hero"
+        "p1-text p1-text p2-hero p2-hero p3-hero p3-hero"
+        "p1-bild1 p1-bild2 p2-hero p2-hero p3-text p3-text";  
+}
+
+.p1-hero img, .p2-hero img, .p3-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.p1-bild1 img, .p1-bild2 img, 
+.p2-bild1 img, .p2-bild2 img,
+.p3-bild1 img, .p3-bild2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bio { 
+    grid-area: bio;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+}
+
+/* ALLES ZU P1 */
+.p1-hero { grid-area: p1-hero; }
+.p1-text { grid-area: p1-text; }
+.p1-bild1 { grid-area: p1-bild1; }
+.p1-bild2 { grid-area: p1-bild2; }
+
+/* ALLES ZU P2 */
+.p2-hero { grid-area: p2-hero; }
+.p2-text { grid-area: p2-text; }
+.p2-bild1 { grid-area: p2-bild1; }
+.p2-bild2 { grid-area: p2-bild2; }
+
+/* ALLES ZU P3 */
+.p3-hero { grid-area: p3-hero; }
+.p3-text { grid-area: p3-text; }
+.p3-bild1 { grid-area: p3-bild1; }
+.p3-bild2 { grid-area: p3-bild2; }
+
+.p1-text, .p2-text, .p3-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 60px; 
+}
