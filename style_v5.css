@@ -4,10 +4,16 @@
     box-sizing: border-box;
 }
 
+
+
 body {
-    padding: 5px;
-    background-color: rgb(182, 61, 61);
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
     color: white;
+     font-family: "Poppins", sans-serif;
+     font-weight: 400;
+     font-size: 20px;
+
 }
 
 
@@ -16,26 +22,40 @@ body {
     white-space: nowrap;
     padding-bottom: 5px;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .marquee-text {
     display: inline-block;
     animation: laufen 20s linear infinite;
-    font-size: 240px;
-    font-weight: 900;
+    font-size: 120px;
+    font-weight: 400;
+    white-space: nowrap;
 }
 
+.marquee-text span {
+    display: inline-block;
+    padding-right: 10px; /* spacing between repeated texts */
+}
+
+
+.marquee-text a {
+    color: white;
+    text-decoration: none;
+}
+
+
 @keyframes laufen {
-    from { transform: translateX(100vw); }
-    to   { transform: translateX(-100%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* move left by half the total width */
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
-    height: calc(100vh - 260px);
+    /* grid-template-rows: repeat(5, 1fr); */
+    gap: 20px;
+    /* height: calc(100vh - 260px); */
     grid-template-areas:
         ". . bio bio . ."
         "p1-hero p1-hero p2-text p2-text p3-bild1 p3-bild2"
@@ -46,8 +66,8 @@ body {
 
 .p1-hero img, .p2-hero img, .p3-hero img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    /* object-fit: cover; */
 }
 
 .p1-bild1 img, .p1-bild2 img, 
@@ -61,10 +81,15 @@ body {
 .bio { 
     grid-area: bio;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
-    font-size: 60px;
+     padding-top: 10px; 
+    /* font-size: 40px; */
+}
+
+p {
+    font-size: 20px;
 }
 
 /* ALLES ZU P1 */
@@ -92,4 +117,39 @@ body {
     align-items: center;
     text-align: center;
     font-size: 60px; 
+     cursor: pointer;
+    
+}
+
+.p1-bild1,
+.p1-bild2,
+.p2-bild1,
+.p2-bild2,
+.p3-bild1,
+.p3-bild2 {
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.p1-text:hover ~ .p1-bild1 {
+    opacity: 1;
+}
+
+.p1-text:hover ~ .p1-bild2 {
+    opacity: 1;
+}
+
+.p2-text:hover ~ .p2-bild1 {
+    opacity: 1;
+}
+
+.p2-text:hover ~ .p2-bild2 {
+    opacity: 1;
+}
+
+.p3-text:hover ~ .p3-bild1 {
+    opacity: 1;
+}
+.p3-text:hover ~ .p3-bild2 {
+    opacity: 1;
 }
