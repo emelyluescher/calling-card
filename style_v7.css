@@ -1,0 +1,180 @@
+/* RESET & BODY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+/* MARQUEE */
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: laufen 20s linear infinite;
+    font-size: 120px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.marquee-text span {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.marquee-text a {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes laufen {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* GRID */
+.grid-container {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto 20vh 20vh 20vh 20vh;  /* feste vh statt 1fr */
+    gap: 5px;
+    grid-template-areas:
+        ". . bio bio . ."
+        "p1-hero p1-hero p2-text p2-text p3-extra p3-extra"
+        "p1-hero p1-hero p2-extra p2-extra p3-hero p3-hero"
+        "p1-text p1-text p2-hero p2-hero p3-hero p3-hero"
+        "p1-extra p1-extra p2-hero p2-hero p3-text p3-text";
+}
+
+.grid-container img {
+    width: 100%;
+    display: block;
+}
+
+/* BIO */
+.bio {
+    grid-area: bio;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* HERO */
+.p1-hero { grid-area: p1-hero; overflow: hidden; }
+.p2-hero { grid-area: p2-hero; overflow: hidden; }
+.p3-hero { grid-area: p3-hero; overflow: hidden; }
+
+.p1-hero img,
+.p2-hero img,
+.p3-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* TEXTE */
+.p1-text { grid-area: p1-text; }
+.p2-text { grid-area: p2-text; }
+.p3-text { grid-area: p3-text; }
+
+.p1-text, .p2-text, .p3-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+/* EXTRA BILDER */
+.p1-extra-wrapper {
+    grid-area: p1-extra;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.p2-extra-wrapper {
+    grid-area: p2-extra;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.p3-extra-wrapper {
+    grid-area: p3-extra;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* EXTRA BILDER */
+.p1-extra-wrapper img,
+.p2-extra-wrapper img,
+.p3-extra-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;    /* NEU */
+    object-fit: contain;
+}
+
+
+
+.p1-extra-wrapper,
+.p2-extra-wrapper,
+.p3-extra-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-content: start;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    max-height: 100%;    /* NEU */
+}
+
+
+
+
+/* HOVER — funktioniert weil p-text direkt vor p-extra im DOM steht */
+.p1-text:hover ~ .p1-extra-wrapper,
+.p2-text:hover ~ .p2-extra-wrapper,
+.p3-text:hover ~ .p3-extra-wrapper {
+    opacity: 1;
+}
+
+
+
+
+
