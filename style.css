@@ -1,4 +1,3 @@
-/* RESET & BODY */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +9,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(79, 79, 79);
     color: white;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -54,7 +53,7 @@ body {
     display: grid;
     flex: 1;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto 20vh 20vh 20vh 20vh;  /* feste vh statt 1fr */
+    grid-template-rows: auto 20vh 20vh 20vh 20vh;
     gap: 5px;
     grid-template-areas:
         ". . bio bio . ."
@@ -109,47 +108,9 @@ body {
 }
 
 /* EXTRA BILDER */
-.p1-extra-wrapper {
-    grid-area: p1-extra;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    align-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.p2-extra-wrapper {
-    grid-area: p2-extra;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    align-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.p3-extra-wrapper {
-    grid-area: p3-extra;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    align-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* EXTRA BILDER */
-.p1-extra-wrapper img,
-.p2-extra-wrapper img,
-.p3-extra-wrapper img {
-    width: 100%;
-    height: auto;
-    max-height: 100%;    /* NEU */
-    object-fit: contain;
-}
-
-
+.p1-extra-wrapper { grid-area: p1-extra; }
+.p2-extra-wrapper { grid-area: p2-extra; }
+.p3-extra-wrapper { grid-area: p3-extra; }
 
 .p1-extra-wrapper,
 .p2-extra-wrapper,
@@ -161,20 +122,20 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
     overflow: hidden;
-    max-height: 100%;    /* NEU */
+    max-height: 100%;
 }
 
+.p1-extra-wrapper img,
+.p2-extra-wrapper img,
+.p3-extra-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 
-
-
-/* HOVER — funktioniert weil p-text direkt vor p-extra im DOM steht */
+/* HOVER */
 .p1-text:hover ~ .p1-extra-wrapper,
 .p2-text:hover ~ .p2-extra-wrapper,
 .p3-text:hover ~ .p3-extra-wrapper {
     opacity: 1;
 }
-
-
-
-
-
